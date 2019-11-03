@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import CustomStore from 'devextreme/data/custom_store';
 import 'devextreme/data/odata/store';
+import {PostsLoadService} from './posts-load.service';
 
 export interface IPost {
   userId: number;
@@ -16,15 +16,14 @@ export interface IPost {
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent  {
-  dataSource: any = {};
+export class AppComponent {
+  dataSource: CustomStore;
 
-  constructor(httpClient: HttpClient) {
+  constructor(private postsLoad: PostsLoadService) {
     this.dataSource = new CustomStore({
       key: 'userId',
       load() {
-        return httpClient.get('https://jsonplaceholder.typicode.com/posts')
-          .toPromise()
+        return postsLoad.getPosts()
           .then((data: IPost[]) => {
             return {
               data
