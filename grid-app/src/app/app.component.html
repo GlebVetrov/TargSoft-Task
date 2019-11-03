@@ -1,0 +1,33 @@
+<dx-data-grid id="gridContainer"
+              [dataSource]="dataSource"
+              [showBorders]="true"
+              >
+  <dxo-paging [pageSize]="20"></dxo-paging>
+  <dxo-pager
+    [showPageSizeSelector]="true"
+    [allowedPageSizes]="[10, 20, 30]"
+    [showInfo]="true">
+  </dxo-pager>
+  <dxi-column
+    dataField="userId"
+    alignment="left"
+    caption="UserID"
+    dataType="number">
+  </dxi-column>
+  <dxi-column
+    dataField="id"
+    alignment="left"
+    caption="Id"
+    dataType="number">
+  </dxi-column>
+  <dxi-column
+    dataField="title"
+    caption="Title"
+    dataType="string">
+  </dxi-column>
+  <dxi-column
+    dataField="body"
+    caption="Post"
+    dataType="string">
+  </dxi-column>
+</dx-data-grid>
