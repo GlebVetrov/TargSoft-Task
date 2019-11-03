@@ -1,6 +1,6 @@
 # GridApp
 
-Project build DevExpress Grid and Docker container on nginx.
+Project build DevExpress Grid with Docker container on nginx.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.16.
 
 ## Development server
